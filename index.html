@@ -1,108 +1,65 @@
-<index.html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyFAU Dashboard — Demo</title>
+  <title>Canvas — MyFAU (Demo)</title>
   <style>
     :root{
       --fau-blue:#003366;
-      --fau-red:#c8102e;
       --bg:#f4f6fa;
       --card:#ffffff;
       --muted:#6b7280;
+      --border:#e5e7eb;
     }
     *{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     body{margin:0;background:var(--bg);color:#111}
-    header{
-      background:linear-gradient(90deg,var(--fau-red),var(--fau-blue));
-      color:#fff;padding:18px 16px;position:sticky;top:0;z-index:50
-    }
-    header h1{margin:0;text-align:center;font-size:20px;font-weight:600}
+    header{background:var(--fau-blue);color:#fff;padding:16px;position:sticky;top:0}
+    header h1{margin:0;font-size:18px;text-align:center;font-weight:600}
     .container{max-width:420px;margin:0 auto}
-    .card{background:var(--card);margin:12px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.08);padding:14px}
-    .profile{display:flex;align-items:center;gap:12px}
-    .avatar{width:64px;height:64px;border-radius:50%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:#374151}
-    .name{font-size:18px;font-weight:700}
-    .z{font-size:14px;color:var(--muted)}
-    details summary{font-weight:600;cursor:pointer;list-style:none}
-    details summary::-webkit-details-marker{display:none}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
-    .icon{
-      border:2px solid var(--fau-blue);
-      border-radius:50%;height:66px;width:66px;
-      display:flex;align-items:center;justify-content:center;
-      text-align:center;font-size:11px;font-weight:600;
-      color:var(--fau-blue);background:#fff;cursor:pointer;
-      transition:.15s ease
+    .card{background:var(--card);margin:12px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.08);padding:14px}
+    .course{border-bottom:1px solid var(--border);padding:12px 0}
+    .course:last-child{border-bottom:none}
+    .title{font-weight:600;font-size:15px}
+    .meta{font-size:13px;color:var(--muted);margin-top:2px}
+    .term{font-size:12px;color:#374151;font-weight:600;margin-bottom:8px}
     }
-    .icon:active{transform:scale(.96)}
-    .icon:hover{background:#eef2ff}
-    nav{
-      position:fixed;bottom:0;left:0;right:0;background:#fff;
-      border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;
-      padding:8px 0;font-size:12px
-    }
-    nav div{color:var(--muted)}
-    footer{height:90px}
-    .demo{
-      text-align:center;font-size:11px;color:#9ca3af;margin-top:10px
-    }
+  </script>
+</body>
+</html>
+ .demo{text-align:center;font-size:11px;color:#9ca3af;margin:12px}
   </style>
 </head>
 <body>
-  <header><h1>My Dashboard</h1></header>
+  <header>
+    <h1>Canvas</h1>
+  </header>
 
   <div class="container">
-    <div class="card profile">
-      <div class="avatar">FAU</div>
-      <div>
-        <div class="name">Nicholas Ferrer</div>
-        <div class="z">Z23834429</div>
+    <div class="card">
+      <div class="term">Spring 2026</div>
+
+      <div class="course">
+        <div class="title">CHM 2045 — General Chemistry I</div>
+        <div class="meta">Section 001 • Boca Raton Campus</div>
+      </div>
+
+      <div class="course">
+        <div class="title">BSC 2010 — Biological Principles</div>
+        <div class="meta">Section 003 • Boca Raton Campus</div>
+      </div>
+
+      <div class="course">
+        <div class="title">MAC 2311 — Calculus I</div>
+        <div class="meta">Section 002 • Boca Raton Campus</div>
+      </div>
+
+      <div class="course">
+        <div class="title">ENC 1101 — Composition I</div>
+         <div class="meta">Section 005 • Online</div>
       </div>
     </div>
-
-    <div class="card">
-      <details open>
-        <summary>My Info</summary>
-        <p style="color:var(--muted);font-size:14px;margin-top:8px">
-          Student • Undergraduate • Boca Raton Campus<br/>
-          Status: Active
-        </p>
-      </details>
-    </div>
-
-    <div class="card">
-      <details open>
-        <summary>My Resources</summary>
-        <div class="grid">
-          <div class="icon" onclick="openPage('self')">FAU<br>Self‑Service</div>
-          <div class="icon" onclick="openPage('email')">FAU<br>Email</div>
-          <div class="icon" onclick="openPage('canvas')">Canvas</div>
-          <div class="icon" onclick="openPage('workday')">Workday</div>
-          <div class="icon" onclick="openPage('success')">Success<br>Network</div>
-          <div class="icon" onclick="openPage('m365')">Microsoft<br>365</div>
-          <div class="icon" onclick="openPage('drive')">OneDrive</div>
-          <div class="icon" onclick="openPage('fin')">Student<br>Finances</div>
-        </div>
-      </details>
-    </div>
-
-    <div class="demo">Demonstration interface — no real account access</div>
-    <footer></footer>
+    <div class="demo">demo</div>
   </div>
-
-  <nav>
-    <div>Home</div>
-    <div>Alerts</div>
-    <div>Profile</div>
-    <div>More</div>
-  </nav>
-
-  <script>
-    function openPage(page){
-      alert('Opening ' + page + ' (demo screen)');
-    }
-  </script>
 </body>
 </html>
